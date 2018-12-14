@@ -1,10 +1,43 @@
 :root {
-	--en-background-color: #9E1030;
-	--en-background-color-question: #C62168;
-	--en-background-color-answer: #FE840E;
-	--en-background-color-question-text: #FE840E;
-	--en-background-color-answer-text: #C62168;
-	--en-background-color-button-down: #181818;
+	--en-background-color: #3F69AA;
+	--en-background-color-question: #3F69AA;
+	--en-background-color-answer: #6F9FD8;
+	--en-background-color-question-text: #fff;
+	--en-background-color-answer-text: #fff;
+	--en-background-color-button-down: #343148;
+}
+
+/* latin-ext */
+@font-face {
+  font-family: 'Audiowide';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Audiowide Regular'), local('Audiowide-Regular'), url(l7gdbjpo0cum0ckerWCdmA_OIxo.woff2) format('woff2');
+  unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Audiowide';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Audiowide Regular'), local('Audiowide-Regular'), url(l7gdbjpo0cum0ckerWCdlg_O.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* latin */
+@font-face {
+  font-family: 'Monoton';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Monoton'), local('Monoton-Regular'), url(5h1aiZUrOngCibe4TkHLQg.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* latin */
+@font-face {
+  font-family: 'Quantico';
+  font-style: normal;
+  font-weight: 700;
+  src: local('Quantico-Bold'), url(rax5HiSdp9cPL3KIF7TQAShdu08.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
 
 html, head, body  {
@@ -13,19 +46,52 @@ html, head, body  {
 	margin: 0px;
 	padding: 0px;
 	overflow: hidden;
+	font-family: 'Audiowide';
 }
 
 div {
 	margin: 5px;
 	padding: 5px;
-
-	user-select: none;
-    -webkit-user-select: none;
-    -ms-user-select: none;
-    -webkit-touch-callout: none;
-    -o-user-select: none;
-    -moz-user-select: none;
+	font-family: 'Audiowide';
 }
+
+/**
+* Page d'accueil index.html
+*/
+
+#back {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	height: 100%;
+	width: 100%;
+}
+
+#logo {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	border: 1px solid black;
+	width: 50%;
+	height: 50%;
+	text-align: center;
+}
+
+a {
+	margin: 25px;
+	font-size: 64px;
+	color: var(--en-background-color);
+}
+
+span {
+	margin: 25px;
+}
+
+/**
+* Page de l'outil recherche.html
+*/
 
 #parameters, #finish {
 	position: absolute;
@@ -83,9 +149,18 @@ div {
 	padding: 15px;
 }
 
+.unselect {
+	user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    -webkit-touch-callout: none;
+    -o-user-select: none;
+    -moz-user-select: none;
+}
+
 .answer:hover  {
-	box-shadow: 1px 1px 12px #555;
-	text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+	box-shadow: inset 12px 0px white;
+	text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white;
 }
 
 .answerText {
@@ -96,15 +171,17 @@ div {
 	position: absolute;
 	display: block;
 	/*border: 1px solid black; */
-	float: right;
 	height: 25%;
 	right: 0px;
 	bottom: 0px;
-	margin: 25px;
-	padding: 25px;
 	font-size: 64px;
 }
 
 .mousedown {
 	background-color: var(--en-background-color-button-down);
+}
+
+#home > a {
+	font-size: 64px;
+	color: var(--en-background-color-answer-text);
 }

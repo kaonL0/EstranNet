@@ -1,5 +1,6 @@
-let currentProp = null;
+let currentFeature = null; // caractéristique courante
 
+// Charge les paramètres de couleur
 function loadParameters () {
 	let systemDiv = document.getElementById('system');
 	systemDiv.style.setProperty('--en-background-color', parameters.enbackgroundcolor);
@@ -8,32 +9,52 @@ function loadParameters () {
 	questionDiv.style.setProperty('--en-background-color-question', parameters.enbackgroundcolorquestion);
 }
 
+// Initialisation de l'application
 function load() {
-	next();
 	loadParameters();
+
+	features.forEach(feature => {
+		feature.asked = false;
+	});
+
+	species.forEach(specie => {
+		specie.possible = true;
+	});
+
+	next();
 }
 
+// Passe à la quesiton suivante
 function next() {
 	let bestQuestion = getBestQuestionToAsk();
 	if (bestQuestion === null) {
-		displaySolution('Non trouvé... Demande à ton animateur !!', 'images/not_found.jpeg');
+		const suggestion = species
+			.filter(specie => specie.possible)
+			.reduce((acc, value)=> {
+				return `${acc} ${value.name} ?`;
+			}, '');
+		displaySolution('Non trouvé... Demande à ton animateur !!', 'images/not_found.jpeg', suggestion);
 	} else {
-		currentProp = bestQuestion[0];
-		let p = getFeatureByKey(currentProp);
+		currentFeature = bestQuestion[0];
+		let p = getFeatureByKey(currentFeature);
 		displayQuestion(p.q, p.r);
 	}
 };
 
+// Gestion du choix de l'utilisateur
 function choice(e) {
-	// Parcours la liste des caractéritiques des éspèces
-	// met à jour la valeur choisie par l'utilisateur
+	// Mise à jour la valeur choisie par l'utilisateur
+	// Flag si cette espèce devient maintenant impossible
 	species.forEach(specie => {
 		specie.features.forEach(feature => {
-			if (feature[0] == currentProp)
+			if (feature[0] == currentFeature) {
 				feature.push(e.target.value);
+				if (e.target.value !== feature[1]) {
+					specie.possible = false;
+				}
+			}
 		});
 	});
-
 	console.log('species', species);
 
 	// Cherche si une solution est trouvée
@@ -45,11 +66,11 @@ function choice(e) {
 		});
 		if (all_true) {
 			found = true;
-			displaySolution(specie.name, 'images/'+getImageName(specie.name))
+			displaySolution(specie.name, 'images/'+getImageName(specie.name));
 		}
 	});
 
-	setFeatureAsked(currentProp);
+	setFeatureAsked(currentFeature);
 
 	if (!found) {
 		next();
@@ -57,55 +78,61 @@ function choice(e) {
 }
 
 /* Cherche la meilleure question à poser
-On recherche la caractéristique qui n'a pas encore été traitée
-et qui possède le plus d'occurence dans la liste des espèces
+On recherche la caractéristique :
+	- qui n'a pas encore été traitée
+	- qui possède le plus d'occurence dans la liste des espèces possibles
 => retourne une clé de caractéristique
 */
 function getBestQuestionToAsk () {
-	// Calc best question to ask
-	let questionOrder = [];
+
+	let featuresCount = [];
+	features.forEach(feature => {
+		featuresCount[feature.k] = 0;
+	});
+
+	// count
 	species.forEach(specie => {
-		specie.features.forEach(props => {
-			if (!getFeatureByKey(props[0]).asked) {
-				if (!questionOrder[props[0]])
-					questionOrder[props[0]] = 0;
-				if (props[1] ==='Oui') {
-					questionOrder[props[0]] +=  1;
-				} else if (props[1] ==='Non') {
-					questionOrder[props[0]] +=  -1;
-				}
+		specie.features.forEach(feature => {
+			if (!getFeatureByKey(feature[0]).asked && specie.possible) {
+				featuresCount[feature[0]] +=  1;
 			}
 			return 0;
 		});
 	});
 
-	// Sort with max features
-	var ordered = [];
-	for (var e in questionOrder) {
-	    ordered.push([e, questionOrder[e]]);
+	var featuresOrdered = [];
+	var totalCount = 0;
+	// sort
+	for (var k in featuresCount) {
+		featuresOrdered.push([k, featuresCount[k]]);
+		totalCount += featuresCount[k];
 	}
-	ordered.sort(function(prop1, prop2) {
+	featuresOrdered.sort(function(prop1, prop2) {
 	    return prop2[1] - prop1[1];
 	});
-	console.log('getBestQuestionToAsk', ordered);
+	console.log('featuresOrdered', featuresOrdered);
 
-	return ordered[0] || null;
+	return totalCount>0 ? featuresOrdered[0] : null;
 }
 
+// Récupère une feature à partir d'un indice
 function getFeature(idx) {
 	return features.filter((e, i) => i === idx)[0];
 }
 
+// Récupère une feature à partir d'une clé
 function getFeatureByKey(key) {
 	return features.filter((e, i) => e.k === key)[0];
 }
 
+// Défini une feature comme déjà demandée
 function setFeatureAsked(key) {
 	features.forEach((e, i) => {
 		if(e.k === key) e.asked = true;
 	});
 }
 
+// tests
 function test() {
 	console.log('bestQuestion', getBestQuestionToAsk());
 	console.log('getFeature', getFeature(2));

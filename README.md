@@ -1,24 +1,61 @@
 # EstranNet
 Un outils pédagogique permettant d'identifier les espèces de notre territoire.
 
-## Naissance de l'idée
+
+## Démonstration
+Une version live est disponible ici : <a href="http://ldfreelance.fr/estrannet/" target="_blank">http://ldfreelance.fr/estrannet/</a>
+
+
+## Idée de départ
 * Lors de la formation "Utiliser les outils numériques en éducation à l’environnement"
-* Dispensée par Guillaume REMAUD des [Petits Débrouillards](http://www.lespetitsdebrouillards.org/) en partenariat avec l'[Ifrée](https://www.ifree.asso.fr/)
-* Organisée par le [REEB](http://www.reeb.asso.fr/)
-* Au cours d'un atelier de création d'animation pédagogique, par Mikaël, Mickaël et Guillaume
+* Dispensée par Guillaume REMAUD <a href="http://www.lespetitsdebrouillards.org/" target="_blank">Les Petits Débrouillards</a> à partir d'études de l'<a href="https://www.ifree.asso.fr/" target="_blank">Ifrée</a>
+* Organisée par le <a href="http://www.reeb.asso.fr/" target="_blank">REEB</a> à Saint-Brieuc (décembre 2018)
+* Application imaginée au cours d'un atelier de création d'animation pédagogique par l'équipe de Guillaume CARFANTAN, Michaël TANGHE et Michaël QUERRE
 
-## Choix de technologie
-* Web : grande compatibilité, nécéssite simplement un navigateur (tablette, ordinateur, téléphone, etc...)
+
+## Avantages de la technologie choisie
+* Web : nécéssite simplement un navigateur, compatibilité tablette, ordinateur, téléphone, etc...
 * Minimaliste : portable, pas besoin de réseau, léger
-* Personnalisable : chaque animateur peut paramétrer ses espèces et ses caractéristiques
+* Facilement personnalisable : chaque animateur peut paramétrer ses espèces et ses caractéristiques (un seul fichier à modifier)
 
-## Installation
-* Récupérer l'archive compressée (bouton vert ci-dessus)
-* Dézipper sur la machine
-* ouvrir (cliquer ou double cliquer) le fichier public/index.html
 
-## TODO
-* améliorer le système
-** système simplifié : besoin système expert ?
-** gestion des questions : optimisation selon caractéristique
-* notice d'installation
+## Théorie sur la recherche d'espèce
+Ce genre de problème se gère avec une technique d'intelligence artificielle nommée "système expert". Ce genre d'algorithmes fonctionnent bien, parmi les applications connues : Akinathor, Mycin (outils de diagnotic médical), etc...
+
+J'ai essayé de créer un système simplifié inspiré des systèmes experts. L'objectif est de permettre aux animateurs de le configurer facilement et rapidement.
+
+La difficulté de ce gendre d'outil reste la constitution des règles (caractéristiques et espèces) qu'il faut définir pour que le système se comporte comme un vrai expert.
+
+
+## Configurer son propre système
+Par défaut, ce logiciel fonctionne avec 9 espèces et 13 caractéristiques. Pour créer son propre système, il n'y a qu'un seul fichier à modifier : [public/data/rules.js](https://github.com/kaonL0/EstranNet/blob/master/public/data/rules.js)
+* Un tableau de caractéristiques (à configurer suivant le modèle)
+* Un tableau d'espèces (à configurer suivant le modèle)
+
+Une documentation complète se trouve dans ce fichier pour pouvoir le modifier facilement.
+
+
+## Installation sur une machine
+* Télécharger l'archive compressée (bouton vert ci-dessus : Clone or download > Donwload ZIP)
+* Décompresser sur la machine
+* Ouvrir le fichier public/index.html (cliquer ou double cliquer : il s'ouvrira automatiquement dans le navigateur)
+* Sur tablette, possibilité de faire un lien sur l'écran d'accueil
+
+
+## Et après...
+Si certains d'entre vous souhaient améliorer/configurer/déployer cet outil pour pouvoir le proposer dans une de leur animation, je reste à votre disposition pour vous aider.
+
+Pour mémo, ce qu'il serait bien de faire :
+* Adaptation de l'interface graphique selon demande
+* Amélioration des images proposées (toutes libres de droits, mais pas très belles et non homogène)
+* Constitution d'un fichier de règles cohérent (quid du nombre d'espèces ?)
+* Tester en condition réel
+
+
+
+
+
+
+
+
+
