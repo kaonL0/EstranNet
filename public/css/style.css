@@ -1,0 +1,110 @@
+:root {
+	--en-background-color: #9E1030;
+	--en-background-color-question: #C62168;
+	--en-background-color-answer: #FE840E;
+	--en-background-color-question-text: #FE840E;
+	--en-background-color-answer-text: #C62168;
+	--en-background-color-button-down: #181818;
+}
+
+html, head, body  {
+	height: 100%;
+	width: 100%;
+	margin: 0px;
+	padding: 0px;
+	overflow: hidden;
+}
+
+div {
+	margin: 5px;
+	padding: 5px;
+
+	user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    -webkit-touch-callout: none;
+    -o-user-select: none;
+    -moz-user-select: none;
+}
+
+#parameters, #finish {
+	position: absolute;
+	display: none;
+}
+
+#system {
+	height: 100%;
+	width: 100%;
+	margin: 0px;
+	padding: 0px;
+	display: flex;
+	flex-direction: column;
+	background-color: var(--en-background-color);
+}
+
+#question {
+	display: flex;
+	flex-direction: row;
+	flex: 1;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+	font-size: 64px;
+	background-color: var(--en-background-color-question);
+	margin: 15px;
+	padding: 15px;
+}
+
+#answers {
+	flex: 3;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-around;
+	align-items: stretch;
+	margin: 0px;
+	padding: 0px;
+}
+
+.questionText {
+	color: var(--en-background-color-question-text);
+}
+
+.answer {
+	flex: 1px;
+	display: flex;
+	flex-direction: row;
+	flex: 1;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+	font-size: 64px;
+	background-color: var(--en-background-color-answer);
+	margin: 15px;
+	padding: 15px;
+}
+
+.answer:hover  {
+	box-shadow: 1px 1px 12px #555;
+	text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+}
+
+.answerText {
+	color: var(--en-background-color-answer-text);
+}
+
+#home {
+	position: absolute;
+	display: block;
+	/*border: 1px solid black; */
+	float: right;
+	height: 25%;
+	right: 0px;
+	bottom: 0px;
+	margin: 25px;
+	padding: 25px;
+	font-size: 64px;
+}
+
+.mousedown {
+	background-color: var(--en-background-color-button-down);
+}
