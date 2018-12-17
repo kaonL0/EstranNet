@@ -13,7 +13,7 @@ let features = [
 ];
 */
 
-let features = [
+let features_test = [
 	{k: 'can_move', q: 'Est ce que cette espèce peut se déplacer ?', r: ['Oui', 'Non']},
 	{k: 'can_fly', q: 'Est ce que cette espèce peut voler ?', r: ['Oui', 'Non']},
 	{k: 'has_shell', q: 'Est ce que cette espèce a une carapace ?', r: ['Oui', 'Non']},
@@ -48,7 +48,7 @@ let species = [
 Pour réaliser une identification correctement il est conseiller d'avoir une liste de caractéristique/valeur unique
 */
 
-let species = [
+let species_test = [
 	{name: 'Fou de bassan', features: [['can_move', 'Oui'], ['can_fly', 'Oui'], ['yellow_head', 'Oui']]},
 	{name: 'Macareux', features: [['can_move', 'Oui'], ['can_fly', 'Oui'], ['red_nose', 'Oui']]},
 	{name: 'Crabe vert', features: [['can_move', 'Oui'], ['has_shell', 'Oui'], ['color_green', 'Oui']]},

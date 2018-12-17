@@ -34,13 +34,13 @@ function createAnswer(answer){
 
 // Affiche une question
 function displayQuestion(question, responses) {
-	var questionDOM = document.getElementById("question");
+	let questionDOM = document.getElementById("question");
 	while (questionDOM.firstChild) {
 	    questionDOM.removeChild(questionDOM.firstChild);
 	}
 	questionDOM.appendChild(createQuestion(question));
 
-	var answersDOM = document.getElementById("answers");
+	let answersDOM = document.getElementById("answers");
 	while (answersDOM.firstChild) {
 	    answersDOM.removeChild(answersDOM.firstChild);
 	}
@@ -71,13 +71,13 @@ function mouseDown(e) {
 // Affiche la solution
 // Pas très propre, mais bon...
 function displaySolution(solutionText, imgPath, suggestion='') {
-	var questionDOM = document.getElementById("question");
+	let questionDOM = document.getElementById("question");
 	while (questionDOM.firstChild) {
 	    questionDOM.removeChild(questionDOM.firstChild);
 	}
 	questionDOM.appendChild(createQuestion(solutionText));
 
-	var answersDOM = document.getElementById("answers");
+	let answersDOM = document.getElementById("answers");
 	while (answersDOM.firstChild) {
 	    answersDOM.removeChild(answersDOM.firstChild);
 	}

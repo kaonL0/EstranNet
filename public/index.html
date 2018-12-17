@@ -4,6 +4,10 @@
 	<title>Estr@nNet</title>
 	<meta charset="utf-8">
 	<link rel="stylesheet" type="text/css" href="css/style.css">
+
+	<script type="text/javascript" src="data/rules_default.js"></script>
+	<script type="text/javascript" src="data/rules_ground_swamp.js"></script>
+	<script type="text/javascript" src="data/determination_keys.js"></script>
 </head>
 <body>
 
@@ -14,7 +18,48 @@
 		</div>
 
 		<div id="link">
-			<a href="search.html">Rechercher une espèce</a>
+			<script type="text/javascript">
+				function createSelectDetermination() {
+
+					let s = document.createElement('select');
+					s.id = 'determination_key';
+
+					console.log('determination_keys', determination_keys);		
+					for (var property in determination_keys) {
+					    if (determination_keys.hasOwnProperty(property)) {
+							option = document.createElement("option");
+						    option.value = property;
+						    option.text = determination_keys[property].name;
+						    console.log('opt', option.value, option.text);
+						    s.appendChild(option);
+					    }
+					}
+					return s;
+				}
+
+				let link = document.createElement('a');
+				link.id = 'alink';
+				link.href = 'search.html';
+				link.innerHTML = 'Rechercher une espèce';
+				link.addEventListener('click', evt => {
+					//evt.preventDefault();
+					//evt.stopPropagation();
+
+					let select = document.getElementById('determination_key');
+					console.log('select', select.value);
+					let newHref = 'search.html?determination_key=' + select.value;
+					console.log(newHref);
+					document.getElementById('alink').href = newHref
+				});
+
+				let select = createSelectDetermination();
+				let div = document.getElementById('link');
+
+				div.append(link);
+				div.append(document.createElement('br'));
+				div.append(select);
+			</script>
+
 		</div>
 	</div>
 

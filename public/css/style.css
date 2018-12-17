@@ -79,10 +79,11 @@ div {
 	text-align: center;
 }
 
-a {
+a, input, select {
 	margin: 25px;
 	font-size: 64px;
 	color: var(--en-background-color);
+	border: none;	
 }
 
 span {

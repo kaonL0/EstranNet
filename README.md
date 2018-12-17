@@ -45,17 +45,4 @@ Une documentation complète se trouve dans ce fichier pour pouvoir le modifier f
 ## Et après...
 Si certains d'entre vous souhaient améliorer/configurer/déployer cet outil pour pouvoir le proposer dans une de leur animation, je reste à votre disposition pour vous aider.
 
-Pour mémo, ce qu'il serait bien de faire :
-* Adaptation de l'interface graphique selon demande
-* Amélioration des images proposées (toutes libres de droits, mais pas très belles et non homogène)
-* Constitution d'un fichier de règles cohérent (quid du nombre d'espèces ?)
-* Tester en condition réel
-
-
-
-
-
-
-
-
-
+Ici se trouve la liste des choses à faire/discuter/imaginées : https://github.com/kaonL0/EstranNet/projects/1

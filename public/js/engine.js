@@ -100,8 +100,8 @@ function getBestQuestionToAsk () {
 		});
 	});
 
-	var featuresOrdered = [];
-	var totalCount = 0;
+	let featuresOrdered = [];
+	let totalCount = 0;
 	// sort
 	for (var k in featuresCount) {
 		featuresOrdered.push([k, featuresCount[k]]);
