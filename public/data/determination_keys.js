@@ -1,5 +1,5 @@
 let determination_keys = {
-	ground_swamp: {name: 'Animaux du sol marais maritime (simplifiée)', features: features_ground_swamp, species: species_ground_swamp},
+	ground_swamp: {name: 'Sol marais maritime', features: features_ground_swamp, species: species_ground_swamp},
 	test: {name: 'Clé test', features: features_test, species: species_test},
 }
 

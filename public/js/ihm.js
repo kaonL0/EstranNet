@@ -47,7 +47,7 @@ function displayQuestion(question, responses) {
 
 	responses.forEach(r => {
 		response = createAnswer(r);
-		response.addEventListener('click', choice);
+		response.addEventListener('mouseup', choice);
 		document.getElementById('answers').appendChild(response);
 	});
 }

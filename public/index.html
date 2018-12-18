@@ -4,7 +4,7 @@
 	<title>Estr@nNet</title>
 	<meta charset="utf-8">
 	
-	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=1" />
+	<!-- <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=1" /> -->
 	<meta name="apple-mobile-web-app-capable" content="yes" />
 	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
 
@@ -22,7 +22,9 @@
 			<span>Un outils pédagogique permettant d'identifier les espèces de notre territoire.</span>
 		</div>
 
-		<div id="link">
+		<div id="link"></div>
+		<div id="select"></div>
+
 			<script type="text/javascript">
 				function createSelectDetermination() {
 
@@ -56,13 +58,12 @@
 					console.log(newHref);
 					document.getElementById('alink').href = newHref
 				});
-
+				let divLink = document.getElementById('link');
+				divLink.append(link);
+				
 				let select = createSelectDetermination();
-				let div = document.getElementById('link');
-
-				div.append(link);
-				div.append(document.createElement('br'));
-				div.append(select);
+				let divSelect = document.getElementById('select');
+				divSelect.append(select);
 			</script>
 
 		</div>
