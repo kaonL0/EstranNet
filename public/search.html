@@ -3,6 +3,8 @@
 <head>
 	<title>Estr@nNet</title>
 	<meta charset="utf-8">
+	<META HTTP-EQUIV="CACHE-CONTROL" CONTENT="NO-CACHE">
+	<META HTTP-EQUIV="PRAGMA" CONTENT="NO-CACHE">	
 
 	<!-- <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=1" /> -->
 	<meta name="apple-mobile-web-app-capable" content="yes" />
@@ -22,15 +24,16 @@
 </head>
 <body onload="load();">
 
-	<div id='system'>
+	<div id="system">
+		<div id="menu">
+			<div id="home" style="display: none;">
+				<a href="index.html" class="unselect" style="font-weight: bold;">Nouvelle recherche</a>
+			</div>
+		</div>
 		<div id="question"></div>
 		<div id="answers"></div>
 	</div>
 
-	<div id='home' style="display: none;">
-		<a href="index.html">Retour au menu</a>
-	</div>
-
-	<div id='parameters'></div>
+	<div id="parameters"></div>
 </body>
 </html>

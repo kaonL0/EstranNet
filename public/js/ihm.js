@@ -1,3 +1,14 @@
+var supportsTouch = false;
+if ('ontouchstart' in window) {
+    //iOS & android
+    supportsTouch = true;
+} else if(window.navigator.msPointerEnabled) {
+    // Windows
+    // To test for touch capable hardware 
+    if(navigator.msMaxTouchPoints) {
+        supportsTouch = true;
+    }
+}
 
 // Créer un div de question
 function createQuestion(question) {
@@ -17,8 +28,13 @@ function createAnswer(answer){
 	div.style.setProperty('--en-background-color-button-down', parameters.enbackgroundcolorbuttondown);
 	div.classList.add('unselect');
 	div.value = answer;
-	div.addEventListener('mousedown', mouseDown);
-	div.addEventListener('mouseup', mouseUp);
+	if (!supportsTouch) {
+		div.addEventListener('mouseup', mouseUp);
+		div.addEventListener('mousedown', mouseDown);
+	} else {
+		div.addEventListener('touchstart', mouseUp);
+		div.addEventListener('touchend', mouseDown);
+	}
 
 	let divText = document.createElement('div');
 	divText.classList.add('answerText');
@@ -52,19 +68,26 @@ function displayQuestion(question, responses) {
 	});
 }
 
+let isTouchStartMouseDown = false;
 function mouseUp(e) {
-	if (e.target.classList.contains('answerText')) {
-		e.target.parentNode.classList.remove('mousedown');
-	} else {
-		e.target.classList.remove('mousedown');
-	}
+	if (isTouchStartMouseDown) {	
+		if (e.target.classList.contains('answerText')) {
+			e.target.parentNode.classList.remove('mousedown');
+		} else {
+			e.target.classList.remove('mousedown');
+		}
+		isTouchStartMouseDown = false;
+	}	
 }
 
 function mouseDown(e) {
-	if (e.target.classList.contains('answerText')) {
-		e.target.parentNode.classList.add('mousedown');
-	} else {
-		e.target.classList.add('mousedown');
+	if (!isTouchStartMouseDown) {	
+		if (e.target.classList.contains('answerText')) {
+			e.target.parentNode.classList.add('mousedown');
+		} else {
+			e.target.classList.add('mousedown');
+		}
+		isTouchStartMouseDown = true;
 	}
 }
 
