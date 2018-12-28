@@ -48,7 +48,6 @@ div {
 
 a, input, select {
 	margin: 25px;
-	font-size: 64px;
 	color: var(--en-background-color);
 	border: none;
 	text-decoration: none;
@@ -85,6 +84,7 @@ span {
   line-height: 1.5em;
   padding: 0.5em 3.5em 0.5em 1em;
   font: inherit;
+  font-size: 32px;
 
   /* reset */
   margin: 0;      
