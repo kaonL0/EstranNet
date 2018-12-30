@@ -52,6 +52,7 @@ a, input, select {
 	border: none;
 	text-decoration: none;
 	color: black;
+	font-size: 48px;
 }
 
 span {
