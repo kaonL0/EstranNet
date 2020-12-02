@@ -4,14 +4,15 @@
 	<title>Estr@nNet</title>
 	<meta charset="utf-8">
 	<META HTTP-EQUIV="CACHE-CONTROL" CONTENT="NO-CACHE">
-	<META HTTP-EQUIV="PRAGMA" CONTENT="NO-CACHE">	
-	
+	<META HTTP-EQUIV="PRAGMA" CONTENT="NO-CACHE">
+
 	<!-- <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=1" /> -->
 	<meta name="apple-mobile-web-app-capable" content="yes" />
 	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
 
 	<link rel="stylesheet" type="text/css" href="css/style.css">
 
+	<script type="text/javascript" src="data/rules_seaweed.js"></script>
 	<script type="text/javascript" src="data/rules_default.js"></script>
 	<script type="text/javascript" src="data/rules_ground_swamp.js"></script>
 	<script type="text/javascript" src="data/determination_keys.js"></script>
@@ -36,7 +37,7 @@
 			s.id = 'determination_key';
 			s.classList.add('minimal');
 
-			console.log('determination_keys', determination_keys);		
+			console.log('determination_keys', determination_keys);
 			for (var property in determination_keys) {
 			    if (determination_keys.hasOwnProperty(property)) {
 					option = document.createElement("option");
@@ -65,7 +66,7 @@
 		});
 		let divLink = document.getElementById('link');
 		divLink.append(link);
-		
+
 		let select = createSelectDetermination();
 		let divSelect = document.getElementById('select');
 		divSelect.append(select);

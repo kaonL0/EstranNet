@@ -1,6 +1,7 @@
 let determination_keys = {
 	ground_swamp: {name: 'Sol marais maritime', features: features_ground_swamp, species: species_ground_swamp},
-	test: {name: 'Clé test', features: features_test, species: species_test},
+	seaweed: {name: 'Clé algues', features: features_seaweed, species: species_seaweed},
+	test: {name: 'Clé test', features: features_test, species: species_test}
 }
 
 function setDeterminationKey() {
